@@ -1,0 +1,315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		424093831E96D728005844C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424093821E96D728005844C9 /* AppDelegate.swift */; };
+		424093851E96D728005844C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424093841E96D728005844C9 /* ViewController.swift */; };
+		424093881E96D728005844C9 /* PomodoroScheduler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 424093861E96D728005844C9 /* PomodoroScheduler.xcdatamodeld */; };
+		4240938A1E96D728005844C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424093891E96D728005844C9 /* Assets.xcassets */; };
+		4240938D1E96D728005844C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4240938B1E96D728005844C9 /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4240937F1E96D728005844C9 /* PomodoroScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		424093821E96D728005844C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		424093841E96D728005844C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		424093871E96D728005844C9 /* PomodoroScheduler.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PomodoroScheduler.xcdatamodel; sourceTree = "<group>"; };
+		424093891E96D728005844C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4240938C1E96D728005844C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4240938E1E96D728005844C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4240937C1E96D728005844C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		424093761E96D728005844C9 = {
+			isa = PBXGroup;
+			children = (
+				424093811E96D728005844C9 /* PomodoroScheduler */,
+				424093801E96D728005844C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		424093801E96D728005844C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4240937F1E96D728005844C9 /* PomodoroScheduler.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		424093811E96D728005844C9 /* PomodoroScheduler */ = {
+			isa = PBXGroup;
+			children = (
+				424093821E96D728005844C9 /* AppDelegate.swift */,
+				424093841E96D728005844C9 /* ViewController.swift */,
+				424093891E96D728005844C9 /* Assets.xcassets */,
+				4240938B1E96D728005844C9 /* Main.storyboard */,
+				4240938E1E96D728005844C9 /* Info.plist */,
+				424093861E96D728005844C9 /* PomodoroScheduler.xcdatamodeld */,
+			);
+			path = PomodoroScheduler;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4240937E1E96D728005844C9 /* PomodoroScheduler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 424093911E96D728005844C9 /* Build configuration list for PBXNativeTarget "PomodoroScheduler" */;
+			buildPhases = (
+				4240937B1E96D728005844C9 /* Sources */,
+				4240937C1E96D728005844C9 /* Frameworks */,
+				4240937D1E96D728005844C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PomodoroScheduler;
+			productName = PomodoroScheduler;
+			productReference = 4240937F1E96D728005844C9 /* PomodoroScheduler.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		424093771E96D728005844C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Joshua Zahner";
+				TargetAttributes = {
+					4240937E1E96D728005844C9 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 5YDUYUYRW8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4240937A1E96D728005844C9 /* Build configuration list for PBXProject "PomodoroScheduler" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 424093761E96D728005844C9;
+			productRefGroup = 424093801E96D728005844C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4240937E1E96D728005844C9 /* PomodoroScheduler */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4240937D1E96D728005844C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4240938A1E96D728005844C9 /* Assets.xcassets in Resources */,
+				4240938D1E96D728005844C9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4240937B1E96D728005844C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				424093851E96D728005844C9 /* ViewController.swift in Sources */,
+				424093831E96D728005844C9 /* AppDelegate.swift in Sources */,
+				424093881E96D728005844C9 /* PomodoroScheduler.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4240938B1E96D728005844C9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4240938C1E96D728005844C9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4240938F1E96D728005844C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		424093901E96D728005844C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		424093921E96D728005844C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5YDUYUYRW8;
+				INFOPLIST_FILE = PomodoroScheduler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshuazahner.PomodoroScheduler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		424093931E96D728005844C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5YDUYUYRW8;
+				INFOPLIST_FILE = PomodoroScheduler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshuazahner.PomodoroScheduler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4240937A1E96D728005844C9 /* Build configuration list for PBXProject "PomodoroScheduler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4240938F1E96D728005844C9 /* Debug */,
+				424093901E96D728005844C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		424093911E96D728005844C9 /* Build configuration list for PBXNativeTarget "PomodoroScheduler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				424093921E96D728005844C9 /* Debug */,
+				424093931E96D728005844C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		424093861E96D728005844C9 /* PomodoroScheduler.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				424093871E96D728005844C9 /* PomodoroScheduler.xcdatamodel */,
+			);
+			currentVersion = 424093871E96D728005844C9 /* PomodoroScheduler.xcdatamodel */;
+			path = PomodoroScheduler.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 424093771E96D728005844C9 /* Project object */;
+}
