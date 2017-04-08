@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421A3BA71E98307D004D27D3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A3BA61E98307D004D27D3 /* Task.swift */; };
+		421A3BA91E9832C2004D27D3 /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A3BA81E9832C2004D27D3 /* TaskStatus.swift */; };
 		424093831E96D728005844C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424093821E96D728005844C9 /* AppDelegate.swift */; };
 		424093851E96D728005844C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424093841E96D728005844C9 /* ViewController.swift */; };
 		424093881E96D728005844C9 /* PomodoroScheduler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 424093861E96D728005844C9 /* PomodoroScheduler.xcdatamodeld */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		421A3BA61E98307D004D27D3 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		421A3BA81E9832C2004D27D3 /* TaskStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskStatus.swift; sourceTree = "<group>"; };
 		4240937F1E96D728005844C9 /* PomodoroScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424093821E96D728005844C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		424093841E96D728005844C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				4240938B1E96D728005844C9 /* Main.storyboard */,
 				4240938E1E96D728005844C9 /* Info.plist */,
 				424093861E96D728005844C9 /* PomodoroScheduler.xcdatamodeld */,
+				421A3BA61E98307D004D27D3 /* Task.swift */,
+				421A3BA81E9832C2004D27D3 /* TaskStatus.swift */,
 			);
 			path = PomodoroScheduler;
 			sourceTree = "<group>";
@@ -136,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				421A3BA71E98307D004D27D3 /* Task.swift in Sources */,
 				424093851E96D728005844C9 /* ViewController.swift in Sources */,
 				424093831E96D728005844C9 /* AppDelegate.swift in Sources */,
+				421A3BA91E9832C2004D27D3 /* TaskStatus.swift in Sources */,
 				424093881E96D728005844C9 /* PomodoroScheduler.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +303,7 @@
 				424093931E96D728005844C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
