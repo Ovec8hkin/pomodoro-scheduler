@@ -7,69 +7,115 @@
 //
 
 import Cocoa
+import NotificationCenter
 
 class Task: NSObject{
+    
+    var taskManager = TaskManager.instance
     
     var title: String
     var time: TimeInterval
     var color: CGColor
     var status: TaskStatus = .notStarted
     
-    var timer: Timer!
+    var timer: Timer?
     
-    var viewController: ViewController!
+    var viewController: TaskTimerViewController
     
-    init(title: String, time: TimeInterval, color: CGColor){
+    init(viewController: NSViewController){
+        
+        self.title = ""
+        self.time = 0
+        self.color = .clear
+        self.timer = nil
+        self.viewController = viewController as! TaskTimerViewController
+        
+        super.init()
+    }
+    
+    init(title: String, time: TimeInterval, color: CGColor, viewController: NSViewController){
         
         self.title = title
         self.time = time
         self.color = color
+        self.viewController = viewController as! TaskTimerViewController
+        
+        self.timer = Timer(timeInterval: 1, target: viewController, selector: #selector(TaskTimerViewController.updateTimer), userInfo: nil, repeats: true)
+        
+        super.init()
+        
+        taskManager.addTask(task: self)
+        
         
     }
     
-    init(title: String, endDate: Date, color: CGColor){
+    init(title: String, endDate: Date, color: CGColor, viewController: NSViewController){
         
         self.title = title
         self.color = color
+        self.viewController = viewController as! TaskTimerViewController
         
         self.time = endDate.timeIntervalSinceNow
+        
+        
+        timer = Timer(timeInterval: 1, target: viewController, selector: #selector(TaskTimerViewController.updateTimer), userInfo: nil, repeats: true)
+        
+        super.init()
+        
+        taskManager.addTask(task: self)
 
     }
     
-    init(title: String, startDate: Date, endDate: Date, color: CGColor){
+    init(title: String, startDate: Date, endDate: Date, color: CGColor, viewController: NSViewController){
         
         self.title = title
         self.color = color
+        self.viewController = viewController as! TaskTimerViewController
         
         self.time = endDate.timeIntervalSince(startDate)
+        
+        timer = Timer(timeInterval: 1, target: viewController, selector: #selector(TaskTimerViewController.updateTimer), userInfo: nil, repeats: true)
+
+        
+        super.init()
+        
+        taskManager.addTask(task: self)
+        
         
     }
     
     func pauseTask(){
         print("Pause")
-        timer.invalidate()
+        if let timer = self.timer{
+            timer.invalidate()
+        }
         status = .paused
     }
     
     func resumeTask(){
         print("Resume")
         
-        timer = Timer(timeInterval: 1, target: viewController, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+        timer = Timer(timeInterval: 1, target: viewController, selector: #selector(TaskTimerViewController.updateTimer), userInfo: nil, repeats: true)
         
         startTask()
-        status = .started
     }
     
     func startTask(){
         print("Start")
-        RunLoop.current.add(self.timer, forMode: .commonModes)
+        
+        if timer == nil{
+            timer = Timer(timeInterval: 1, target: viewController, selector: #selector(TaskTimerViewController.updateTimer), userInfo: nil, repeats: true)
+        }
+        
+        RunLoop.current.add(timer!, forMode: .commonModes)
         status = .started
     }
     
     func completeTask(){
         print("Done")
-        timer.invalidate()
+        timer?.invalidate()
         status = .finished
+        taskManager.removeTask(task: self)
     }
     
     func calculateTimeRemaining() -> TimeInterval{
