@@ -10,11 +10,19 @@ import Cocoa
 
 class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, TaskDataChanged{
     
+    @IBOutlet var handler: GUIHandler!
+    /**************** IBOUTLETS ****************/
+    
+    @IBOutlet var scrollView: NSScrollView!
+    
     @IBOutlet var newTaskTitleEntry: NSTextField!
-    @IBOutlet var newTaskColorButton: NSButton!
+    @IBOutlet var newTaskColorButton: NSColorWell!
     @IBOutlet var newTaskTimeButton: NSButton!
     
-    @IBOutlet var circularView: NSView!
+    @IBOutlet var outerCircularView: ProgressCircleView!
+    @IBOutlet var innerCircularView: NSView!
+    
+    
     @IBOutlet var taskName: NSTextField!
     @IBOutlet var timeRemainingLabel: NSTextField!
     
@@ -23,6 +31,8 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
     @IBOutlet var endButton: NSButton!
     
     @IBOutlet var tableView: NSTableView!
+    
+    /**************** IBACTIONS ****************/
     
     @IBAction func play(sender: NSButton){
         
@@ -35,7 +45,9 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
         switch task.status{
             
             case .notStarted:
+                timerStart = Date()
                 task.startTask()
+                handler.handleProgress(sender: playButton, time: task.time)
             case .paused:
                 task.resumeTask()
             default:
@@ -53,8 +65,9 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
         
         if taskManager.tasks.count > 0{
             task.completeTask()
-            setUpForNewTask()
+            print("Setting up new task!")
             tableView.reloadData()
+            setUpForNewTask()
         }else{
             return
         }
@@ -63,12 +76,16 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
     
     @IBAction func addTitleToTask(sender: NSTextField){
         
+        closeColorPanel()
+        
         print("AddTitleToTask")
         
         newTask.title = sender.stringValue
-        //newTask.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
+        print(newTask.title)
         print(newTask.time)
+        print(newTask.color)
+        
         taskManager.addTask(task: newTask)
         
         tableView.reloadData()
@@ -81,6 +98,16 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
         
     }
     
+    @IBAction func newTaskColorChanged(sender: NSColorWell){
+        print("color changed")
+        newTask.color = sender.color.cgColor
+        
+        print("THE NEW COLOR IS: \(newTask.color)")
+        
+    }
+    
+    /**************** INSTANCE VARIABLES ****************/
+    
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mm:ss"
@@ -88,13 +115,16 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
     }()
     
     var newTask: Task!
-    
+    var timerStart: Date!
     var task: Task!
     var taskManager = TaskManager.instance
+    
+    /**************** OVERRIDDEN METHODS ****************/
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Pomodoro Scheduler"
         self.view.layer?.backgroundColor = .white
         
         newTask = Task(viewController: self)
@@ -104,7 +134,8 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
         task.viewController = self
 
         // Do any additional setup after loading the view.
-        circularView.layer?.backgroundColor = CGColor(red: 1.0, green: 0, blue: 0, alpha: 1.0)
+        
+        outerCircularView.wantsLayer = true
         
         timeRemainingLabel.isEditable = false
         timeRemainingLabel.isBezeled = false
@@ -122,6 +153,11 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
         setUpForNewTask()
         
     }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        scrollView.backgroundColor = NSColor(cgColor: .white)!
+    }
 
     override var representedObject: Any? {
         didSet {
@@ -131,6 +167,10 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return taskManager.tasks.count
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 30;
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -154,14 +194,6 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
         
     }
     
-    func taskTimeChanged(time: TimeInterval) {
-        newTask.time = time
-    }
-    
-    func taskColorChanged(color: CGColor) {
-        newTask.color = color
-    }
-    
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier == "taskSetTime"{
             let destination = segue.destinationController as! TaskSetTimeViewController
@@ -170,18 +202,33 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
         }
     }
     
+    func taskTimeChanged(time: TimeInterval) {
+        newTask.time = time
+        taskName.becomeFirstResponder()
+    }
+    
+    func taskColorChanged(color: CGColor) {
+        newTask.color = color
+        taskName.becomeFirstResponder()
+    }
+    
+    
+    
+    /**************** CUSTOM FUNCTIONS ****************/
+    
     
     func updateTimer(){
         print("Updated Timer")
         print(task)
         
-        if task.time > 0{
-            timeRemainingLabel.stringValue = formatTimeString(time: task.calculateTimeRemaining())
+        if self.task.time > 0{
+            self.timeRemainingLabel.stringValue = self.formatTimeString(time: self.task.calculateTimeRemaining())
         }else{
-            task.completeTask()
-            setUpForNewTask()
-            tableView.reloadData()
+            self.task.completeTask()
+            self.setUpForNewTask()
+            self.tableView.reloadData()
         }
+        
     }
     
     func formatTimeString(time: TimeInterval) -> String{
@@ -201,28 +248,50 @@ class TaskTimerViewController: NSViewController, NSTableViewDelegate, NSTableVie
         var time: String
         var name: String
         var color: CGColor
+        var border: CGColor
         
         if taskManager.tasks.count > 0{
             task = taskManager.tasks[0]
             time = formatTimeString(time: task.time)
             name = task.title
             color = task.color
+            border = task.color
         }else{
             name = "No More Tasks"
             time = "00:00:00"
             color = .clear
+            border = .clear
         }
         
         timeRemainingLabel.stringValue = time
         taskName.stringValue = name
         
-        circularView.layer?.backgroundColor = color
+        outerCircularView.multiplier = 360/task.time
+        
+        print("THE COLOR \(color)")
+        
+        setCircleViews(color: color, border: border)
         
     }
     
+    func closeColorPanel(){
+        NSColorPanel.shared().orderOut(nil)
+        newTaskColorButton.deactivate()
+    }
     
-    
-
+    func setCircleViews(color: CGColor, border: CGColor){
+        outerCircularView.layer?.cornerRadius = outerCircularView.frame.width/2
+        innerCircularView.layer?.cornerRadius = innerCircularView.frame.width/2
+        
+        outerCircularView.layer?.borderWidth = 1.0
+        outerCircularView.layer?.borderColor = border
+        
+        innerCircularView.layer?.borderWidth = 1.0
+        innerCircularView.layer?.borderColor = border
+        
+        outerCircularView.layer?.backgroundColor = color
+        innerCircularView.layer?.backgroundColor = .white
+    }
 
 }
 

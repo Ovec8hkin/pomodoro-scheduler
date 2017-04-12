@@ -26,7 +26,7 @@ class Task: NSObject{
         
         self.title = ""
         self.time = 0
-        self.color = .clear
+        self.color = CGColor(red: 100, green: 100, blue: 100, alpha: 1)
         self.timer = nil
         self.viewController = viewController as! TaskTimerViewController
         
@@ -74,7 +74,7 @@ class Task: NSObject{
         
         self.time = endDate.timeIntervalSince(startDate)
         
-        timer = Timer(timeInterval: 1, target: viewController, selector: #selector(TaskTimerViewController.updateTimer), userInfo: nil, repeats: true)
+        timer = Timer(timeInterval: 1.0, target: viewController, selector: #selector(TaskTimerViewController.updateTimer), userInfo: nil, repeats: true)
 
         
         super.init()
@@ -104,7 +104,7 @@ class Task: NSObject{
         print("Start")
         
         if timer == nil{
-            timer = Timer(timeInterval: 1, target: viewController, selector: #selector(TaskTimerViewController.updateTimer), userInfo: nil, repeats: true)
+            timer = Timer(timeInterval: 1.0, target: viewController, selector: #selector(TaskTimerViewController.updateTimer), userInfo: nil, repeats: true)
         }
         
         RunLoop.current.add(timer!, forMode: .commonModes)

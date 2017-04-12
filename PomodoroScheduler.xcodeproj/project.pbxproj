@@ -10,7 +10,6 @@
 		421A3BA71E98307D004D27D3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A3BA61E98307D004D27D3 /* Task.swift */; };
 		421A3BA91E9832C2004D27D3 /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A3BA81E9832C2004D27D3 /* TaskStatus.swift */; };
 		421A3BAB1E995CEF004D27D3 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A3BAA1E995CEF004D27D3 /* TaskManager.swift */; };
-		421A3BAD1E99603E004D27D3 /* TaskManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A3BAC1E99603E004D27D3 /* TaskManagerViewController.swift */; };
 		424093831E96D728005844C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424093821E96D728005844C9 /* AppDelegate.swift */; };
 		424093851E96D728005844C9 /* TaskTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424093841E96D728005844C9 /* TaskTimerViewController.swift */; };
 		424093881E96D728005844C9 /* PomodoroScheduler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 424093861E96D728005844C9 /* PomodoroScheduler.xcdatamodeld */; };
@@ -20,13 +19,14 @@
 		42885DAB1E99D86E003CF302 /* TaskSetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42885DAA1E99D86E003CF302 /* TaskSetTimeViewController.swift */; };
 		42885DAF1E99F179003CF302 /* TaskDataChangedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42885DAE1E99F179003CF302 /* TaskDataChangedProtocol.swift */; };
 		42885DB11E9A0677003CF302 /* TaskSetColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42885DB01E9A0677003CF302 /* TaskSetColorViewController.swift */; };
+		42A1D8A71E9D87050031397F /* GUIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A1D8A61E9D87050031397F /* GUIHandler.swift */; };
+		42A1D8A91E9D871B0031397F /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A1D8A81E9D871B0031397F /* ProgressCircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		421A3BA61E98307D004D27D3 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		421A3BA81E9832C2004D27D3 /* TaskStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskStatus.swift; sourceTree = "<group>"; };
 		421A3BAA1E995CEF004D27D3 /* TaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
-		421A3BAC1E99603E004D27D3 /* TaskManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManagerViewController.swift; sourceTree = "<group>"; };
 		4240937F1E96D728005844C9 /* PomodoroScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424093821E96D728005844C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		424093841E96D728005844C9 /* TaskTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimerViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +38,8 @@
 		42885DAA1E99D86E003CF302 /* TaskSetTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskSetTimeViewController.swift; sourceTree = "<group>"; };
 		42885DAE1E99F179003CF302 /* TaskDataChangedProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDataChangedProtocol.swift; sourceTree = "<group>"; };
 		42885DB01E9A0677003CF302 /* TaskSetColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskSetColorViewController.swift; sourceTree = "<group>"; };
+		42A1D8A61E9D87050031397F /* GUIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GUIHandler.swift; sourceTree = "<group>"; };
+		42A1D8A81E9D871B0031397F /* ProgressCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +84,9 @@
 				421A3BA61E98307D004D27D3 /* Task.swift */,
 				421A3BA81E9832C2004D27D3 /* TaskStatus.swift */,
 				421A3BAA1E995CEF004D27D3 /* TaskManager.swift */,
-				421A3BAC1E99603E004D27D3 /* TaskManagerViewController.swift */,
 				42885DAE1E99F179003CF302 /* TaskDataChangedProtocol.swift */,
+				42A1D8A61E9D87050031397F /* GUIHandler.swift */,
+				42A1D8A81E9D871B0031397F /* ProgressCircleView.swift */,
 			);
 			path = PomodoroScheduler;
 			sourceTree = "<group>";
@@ -160,6 +163,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42A1D8A71E9D87050031397F /* GUIHandler.swift in Sources */,
+				42A1D8A91E9D871B0031397F /* ProgressCircleView.swift in Sources */,
 				42885DAB1E99D86E003CF302 /* TaskSetTimeViewController.swift in Sources */,
 				421A3BAB1E995CEF004D27D3 /* TaskManager.swift in Sources */,
 				421A3BA71E98307D004D27D3 /* Task.swift in Sources */,
@@ -170,7 +175,6 @@
 				421A3BA91E9832C2004D27D3 /* TaskStatus.swift in Sources */,
 				42885DB11E9A0677003CF302 /* TaskSetColorViewController.swift in Sources */,
 				424093881E96D728005844C9 /* PomodoroScheduler.xcdatamodeld in Sources */,
-				421A3BAD1E99603E004D27D3 /* TaskManagerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

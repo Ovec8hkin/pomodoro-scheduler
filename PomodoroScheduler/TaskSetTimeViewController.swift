@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class TaskSetTimeViewController: NSViewController{
+class TaskSetTimeViewController: NSViewController, NSControlTextEditingDelegate{
     
     var task: Task!
     var delegate: TaskDataChanged? = nil
@@ -45,8 +45,15 @@ class TaskSetTimeViewController: NSViewController{
         super.viewDidDisappear()
         computeTime()
         
+        print()
+        
         delegate?.taskTimeChanged(time: task.time)
         
+    }
+    
+    func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
+        self.viewDidDisappear()
+        return true
     }
     
     
